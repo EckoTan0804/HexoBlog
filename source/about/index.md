@@ -1,13 +1,11 @@
 ---
-title: about
+title: About Me
 date: 2018-10-08 15:18:00
 tags:
 - About
 ---
 
 
-
-## About Me
 
 + Ecko Tan
 + From China, study in Germany
