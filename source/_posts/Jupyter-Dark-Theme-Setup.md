@@ -32,7 +32,7 @@ After installing and running Jupyter I find that the default theme is light. As 
    $ pip install jupyterthemes
    ~~~
 
-   of using `conda`:
+   or using `conda`:
 
    ~~~shell
    $ conda install jupyterthemes
@@ -56,7 +56,7 @@ After installing and running Jupyter I find that the default theme is light. As 
 
    Since I am a big fan of [Sublime](https://www.sublimetext.com/), I set monokai as my Jupyter's theme. And this is what it looks like:
 
-   ![Jupyter_Monokai](../images/Jupyter_Monokai.png)
+   ![Jupyter_Monokai.png](https://github.com/EckoTan0804/HexoBlog/blob/master/source/images/Jupyter_Monokai.png?raw=true)
 
 
 
