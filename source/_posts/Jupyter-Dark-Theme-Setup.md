@@ -12,9 +12,15 @@ tags:
 
 [The Jupyter Notebook](http://jupyter.org/) is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.  It is widely used in machine learning, data visualization, data mining and so on.
 
+This article is to share my Jupyter configuration and will be updated continuously.
+
+<!--more-->
+
+## Get Started
+
 If you are new in Jupiter, you can follow this [quick tutorial](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/index.html) to get started.
 
-This article is to share my Jupyter configuration and will be updated continuously.
+
 
 ## Theme
 
