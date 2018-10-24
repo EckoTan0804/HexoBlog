@@ -1,7 +1,10 @@
-cd source/_posts
 
 fileName=$1
 title=$2
+
+git checkout -b ${fileName}
+
+cd source/_posts
 
 if [ -n $fileName ] 
 then
@@ -10,7 +13,7 @@ then
     echo "${fileName} already exists."
   else
     touch ${fileName}.md
-    cat Template.md >> ${fileName}.md
+    cat ../Template/Template.md >> ${fileName}.md
     open -a typora ${fileName}.md
   fi
 else 
