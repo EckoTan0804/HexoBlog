@@ -50,7 +50,7 @@ After installing and running Jupyter I find that the default theme is light. As 
 
    Since I am a big fan of [Sublime](https://www.sublimetext.com/), I set monokai as my Jupyter's theme. And this is what it looks like:
 
-   ![Jupyter_Monokai](assets/Jupyter_Monokai.png)
+   ![Jupyter_Monokai](../images/Jupyter_Monokai.png)
 
 
 
