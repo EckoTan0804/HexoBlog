@@ -32,7 +32,7 @@ After installing and running Jupyter I find that the default theme is light. As 
    $ pip install jupyterthemes
    ~~~
 
-   of using `conda`:
+   or using `conda`:
 
    ~~~shell
    $ conda install jupyterthemes
