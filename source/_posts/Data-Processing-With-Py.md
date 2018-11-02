@@ -7,7 +7,7 @@ tags:
 
 ---
 
-
+This article based on the notes of [Machine Learning](https://his.anthropomatik.kit.edu/28_1008.php)'s exercise course from [Karlsruhe Institute of Technology](http://www.kit.edu/english/index.php). 
 
 <!--more-->
 
@@ -119,7 +119,7 @@ ax[2].set_title('Survival Rate by Embarked')
 sns.countplot('Survived', hue='Sex', data=train, ax=ax[3], palette='husl')
 ```
 
-![output_25_1](../../../../Dropbox/KIT/Informatik/9.Semester/ML1/ML1_Uebung/ML1_Ub_1/assets/output_25_1.png)
+![output_25_1.png](https://github.com/EckoTan0804/HexoBlog/blob/Data-Processing-With-Py/source/images/Exercise_01_Data_Processing_with_Python/output_25_1.png?raw=true)
 
 
 
@@ -146,7 +146,7 @@ ax[1].set_title('Total Passengers by Number of siblings and spouses')
 plt.show()
 ```
 
-![output_30_0](../../../../Dropbox/KIT/Informatik/9.Semester/ML1/ML1_Uebung/ML1_Ub_1/assets/output_30_0.png)
+![output_30_0.png](https://github.com/EckoTan0804/HexoBlog/blob/Data-Processing-With-Py/source/images/Exercise_01_Data_Processing_with_Python/output_30_0.png?raw=true)
 
 One way of detecting outliers could be the use of the standard deviation. If we assume that the data is normally distributed, then 95 percent of the data is within 1.96 standard deviations of the mean. So we can drop the values either above or below that range.
 
@@ -256,7 +256,7 @@ ax[1].set_title('The average survival rates')
 plt.show()
 ```
 
-![output_53_1](../../../../Dropbox/KIT/Informatik/9.Semester/ML1/ML1_Uebung/ML1_Ub_1/assets/output_53_1.png)
+![output_53_1.png](https://github.com/EckoTan0804/HexoBlog/blob/Data-Processing-With-Py/source/images/Exercise_01_Data_Processing_with_Python/output_53_1.png?raw=true)
 
 From the graphics above we can see that all passengers with long names have survived, perhaps the cause is that rich families tend to have longer names.
 
@@ -309,7 +309,7 @@ a.set(xlim=(0 , train['Age'].max()))
 a.add_legend()
 ```
 
-![output_60_1](../../../../Dropbox/KIT/Informatik/9.Semester/ML1/ML1_Uebung/ML1_Ub_1/assets/output_60_1.png)
+![output_60_1.png](https://github.com/EckoTan0804/HexoBlog/blob/Data-Processing-With-Py/source/images/Exercise_01_Data_Processing_with_Python/output_60_1.png?raw=true)
 
 We can see that until the age of 14 the chance of survival is higher than the chance to die. In reverse the chance for dying is higher between the age of 14 and 30. This changes a couple of times between various ages.
 
@@ -362,11 +362,11 @@ sns.distplot(train["Fare"][train["Survived"] == 0], color="r")
 sns.distplot(train["Fare"][train["Survived"] == 1], color="b")
 ```
 
-![output_64_1](../../../../Dropbox/KIT/Informatik/9.Semester/ML1/ML1_Uebung/ML1_Ub_1/assets/output_64_1.png)
+![output_64_1.png](https://github.com/EckoTan0804/HexoBlog/blob/Data-Processing-With-Py/source/images/Exercise_01_Data_Processing_with_Python/output_64_1.png?raw=true)
 
 **To reduce the skewedness of this attribute, we can transform it with the log function.** This redistributes the data:
 
-![output_66_1](../../../../Dropbox/KIT/Informatik/9.Semester/ML1/ML1_Uebung/ML1_Ub_1/assets/output_66_1.png)
+![output_66_1.png](https://github.com/EckoTan0804/HexoBlog/blob/Data-Processing-With-Py/source/images/Exercise_01_Data_Processing_with_Python/output_66_1.png?raw=true)
 
 Now we can define bins more easily: The survival rate is lower for a Fare_log value less than 2.7 and higher for values greater than 2.7.
 
@@ -456,7 +456,7 @@ plt.show()
 
 [`sns.heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html): Plot rectangular data as a color-encoded matrix
 
-![output_75_0](../../../../Dropbox/KIT/Informatik/9.Semester/ML1/ML1_Uebung/ML1_Ub_1/assets/output_75_0.png)
+![output_75_0.png](https://github.com/EckoTan0804/HexoBlog/blob/Data-Processing-With-Py/source/images/Exercise_01_Data_Processing_with_Python/output_75_0.png?raw=true)
 
 We can see from the **survived** column, that it has strong relation with *sex* (0.54) and potential relation with *class* (0.34) (or *fare*).
 
