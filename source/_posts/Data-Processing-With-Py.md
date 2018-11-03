@@ -1,5 +1,5 @@
 ---
-title: Data Processing with Py
+title: Data Processing with Python
 tags:
 - Python
 - Machine Learning
@@ -36,7 +36,7 @@ import sklearn
 
 
 
-## Read datasets
+## Read Datasets
 
 `pd.read_csv()`
 
@@ -49,7 +49,7 @@ test = pd.read_csv('test.csv')
 full_data = [train, test]
 ```
 
-### Display rows of dataset
+### Display Rows of Dataset
 
 `head()`
 
@@ -58,7 +58,7 @@ full_data = [train, test]
 train.head(10)
 ```
 
-###  Display information of dataset
+###  Display Information of Dataset
 
 ```python
 # Print the columns of the data frame
@@ -94,7 +94,7 @@ train.describe()
 
 We will use  [*seaborn*](https://seaborn.pydata.org/), a wrapper which uses matplotlib, but offers a higher-level interface for visualizing data.
 
-### Draw a Figure with a Set of subplots
+### Draw a Figure with a Set of Subplots
 
 [`plt.subplot`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html): Create a figure and a set of subplots.
 
@@ -123,7 +123,7 @@ sns.countplot('Survived', hue='Sex', data=train, ax=ax[3], palette='husl')
 
 
 
-## Cleaning the data
+## Cleaning the Data
 
 Data from the real world is messy. Normally there are missing values, outliers and invalid data (e.g. negative values for age) in a data set. We can solve problems with data quality by replacing these values, trying to close the gap by interpolation or by dropping the respective entries.
 
@@ -185,7 +185,7 @@ train.loc[outliers_to_drop] # Show the outliers rows
 train = train.drop(outliers_to_drop, axis = 0).reset_index(drop=True)
 ```
 
-### Complementary functions
+### Complementary Functions
 
 Most Machine Learning algorithms cannot work with missing values, so let’s create a few functions to take care of the missing values.
 
@@ -439,7 +439,7 @@ except:
   print("The features are already removed.")
 ```
 
-### Correlation analysis - Multi-variate analysis
+### Correlation Analysis - Multi-variate Analysis
 
 - Basically, correlation measures how closely two variables move in the same direction. Therefore we try to find whether there is a correlation between a feature and a label. In other words as the feature values change does the label change as well, and vice-versa?
 - The data may contain a lot of information redundancy distributed among multiple variables, which is a problem called multivariate correllation.
