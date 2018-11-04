@@ -1,6 +1,5 @@
 
 fileName=$1
-title=$2
 
 git checkout -b ${fileName}
 
