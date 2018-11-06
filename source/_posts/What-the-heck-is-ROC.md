@@ -301,7 +301,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-![output_5_0](assets/output_5_0.png)
+![output_5_0.png](https://github.com/EckoTan0804/HexoBlog/blob/What-the-heck-is-ROC/source/_posts/assets/output_5_0.png?raw=true)
 
 
 
