@@ -88,7 +88,14 @@ Still not intuitive enough? Ok, let's look at the pregnancy analogy:
 
   $FNR = \frac{FN}{FN + TP} = 1 - TPR$
 
-> Remember: Deminator is the actual class!
+> Remember: denominator is the actual class!
+>
+> Take True Negative Rate (TNR) for instance:
+>
+> + in this case, the numerator is True Negative (TN)
+> + the denominator is the actual negative class (No matter we predicted it as positive or negative)
+>
+> You can understand it like "Out of all the classes which are actullay negative, how much we predicted correctly (the prediction says it is also negative)", or "the ratio that we have made a correct prediction for the classes which are actually negative"
 
 + **Accuracy (ACC)**
 
@@ -125,14 +132,14 @@ $\beta = \frac{Weight_{recall}}{Weight_{precision}}$
 ## Receiver Operating Characteristic (ROC)
 
 Now we have metrics and criterions to evaluation a binary classification model. But is there a way that we can directly and intuitively visualize the model's performance instead of calculating and comparing? 
-Yep, you got it! Lady and gentlemen, let me introduce you, **AUC** (**Area Under The Curve**) **ROC** (**Receiver Operating Characteristics**) curve. It is one of the most important evaluation metrics for checking any classification model’s performance. It is also written as **AUROC** (**Area Under the** **Receiver Operating Characteristics**).
+Yep, you got it! Ladies and gentlemen, let me introduce you, **AUC** (**Area Under The Curve**) **ROC** (**Receiver Operating Characteristics**) curve. It is one of the most important evaluation metrics for checking any classification model’s performance. It is also written as **AUROC** (**Area Under the** **Receiver Operating Characteristics**).
 
 ### What is AUC-ROC Curve?
 
 AUC - ROC curve is a **performance measurement for classification problem at various thresholds settings**. 
 
 + ROC is a probability curve
-+ AUC represents degree or measure of separability. It tells how much model is capable of distinguishing between classes. **Higher the AUC, better the model is at predicting 0s as 0s and 1s as 1s.** By analogy, Higher the AUC, better the model is at distinguishing between patients with disease and no disease.
++ AUC represents degree or measure of separability. It tells how much model is capable of distinguishing between classes. **Higher the AUC, better the model is at predicting 0s as 0s and 1s as 1s.** By analogy, Higher the AUC, better the model is at distinguishing between patients with disease and no disease. ()
 
 The ROC curve is plotted with TPR against the FPR where 
 
@@ -141,6 +148,25 @@ The ROC curve is plotted with TPR against the FPR where
 + Specifity $= \frac{TN}{TN + FP} = TNR$
 
 ![img](https://cdn-images-1.medium.com/max/800/1*pk05QGzoWhCgRiiFbz-oKQ.png)
+
+### How is the ROC Curve being plotted?
+
+We plot a ROC curve by by connecting several ROC points. Everytime we adjust the threshold, we have new TPR and FPR, which means we have a new ROC point.
+
+Assume that we have calculated sensitivity and specificity values from multiple confusion matrices for four different threshold values.
+
+| Threshold | Sensitivity (TPR) | Specificity (TNR) | 1 – specificity (FPR) |
+| --------- | ----------------- | ----------------- | --------------------- |
+| 1         | 0.0               | 1.0               | 0.0                   |
+| 2         | 0.5               | 0.75              | 0.25                  |
+| 3         | 0.75              | 0.5               | 0.5                   |
+| 4         | 1.0               | 0.0               | 1.0                   |
+
+We first added four points that matches with the pairs of sensitivity and specificity values and then connected the points to create a ROC curve.
+
+![A ROC curve and four ROC points.](https://classeval.files.wordpress.com/2015/06/a-roc-curve-connecting-points.png?w=300&h=287)
+
+
 
 ### How to Speculate the Performance of the Model?
 
@@ -155,7 +181,7 @@ Which means, it predicts 0s as 0s and 1s as 1s.
     <img src="https://cdn-images-1.medium.com/max/400/1*HmVIhSKznoW8tFsCLeQjRw.png" width="300">
 </center>
 
-This is an ideal situation. When two curves don’t overlap at all means model has an ideal measure of separability. It is perfectly able to distinguish between positive class and negative class.
+This is an ideal (perfect) situation. When two curves don’t overlap at all means model has an ideal measure of separability. It is perfectly able to distinguish between positive class and negative class.
 
 But we can not achieve the ideal situation every time. It is normal that these two distributions have overlap.
 
@@ -166,7 +192,7 @@ But we can not achieve the ideal situation every time. It is normal that these t
 
 When two distributions overlap, we introduce type 1 (FP) and type 2 error (FN). Depending upon the threshold, we can minimize or maximize them. When AUC is 0.7, it means there is 70% chance that model will be able to distinguish between positive class and negative class.
 
-When AUC is **0.5**, it means model has no class separation capacity whatsoever (Random situation). This is the worst situation!
+When AUC is **0.5**, it means model has no class separation capacity whatsoever (Random situation). This is a classifier with the random performance level.
 
 <center class="half">
 <img src="https://cdn-images-1.medium.com/max/800/1*iLW_BrJZRI0UZSflfMrmZQ.png" width="300"/>
@@ -200,9 +226,82 @@ As we know $FPR = 1 - TNR = 1 - specificity$. So when we increase TPR (Sensitivi
 
 + **Sensitivity⬇️, Specificity⬆️, FPR⬇️**
 
+### ROC curves for multiple models
+
+Comparison of multiple classifiers is usually straight-forward especially when no curves cross each other. Curves close to the perfect ROC curve have a better performance level than the ones closes to the baseline. (The closer to the ideal/perfect ROC, the higher the AUC)
+
+![Two ROC curves for two classifiers A and B. The plot indicates classifier A outperforms classifier B.](https://classeval.files.wordpress.com/2015/06/two-roc-curves.png?w=280&h=273)
+
 ### Small Visualization Tool 
 
 http://www.navan.name/roc/
+
+
+
+## Plot ROC Curve using Python
+
+In [3]:
+
+~~~python
+from sklearn.datasets import make_classification
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+# Binary Classification
+X, y = make_classification(n_samples=1000, n_features=4, n_classes=2)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=1)
+
+from sklearn.neighbors import KNeighborsClassifier
+
+model = KNeighborsClassifier()
+model.fit(X_train, y_train)
+
+y_predict = model.predict(X_test)
+~~~
+
+In [4]:
+
+```python
+from sklearn.metrics import confusion_matrix
+
+confusion_matrix(y_test, y_predict)
+```
+
+Out[4]:
+
+```
+array([[122,   4],
+       [  4, 120]])
+```
+
+In [5]:
+
+```python
+from sklearn.metrics import roc_curve, auc
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+%matplotlib inline
+
+y_predict_probabilities = model.predict_proba(X_test)[:,1]
+
+fpr, tpr, _ = roc_curve(y_test, y_predict_probabilities)
+roc_auc = auc(fpr, tpr)
+
+plt.figure()
+plt.plot(fpr, tpr, color='darkorange',
+         lw=2, label='ROC curve (area = %0.2f)' % roc_auc)
+plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend(loc="lower right")
+plt.show()
+```
+
+![output_5_0](assets/output_5_0.png)
 
 
 
@@ -210,5 +309,7 @@ http://www.navan.name/roc/
 
 + [Understanding Confusion Matrix](https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62)
 + [Understanding AUC - ROC Curve](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
++ [Introduction to the ROC (Receiver Operating Characteristics) plot](https://classeval.wordpress.com/introduction/introduction-to-the-roc-receiver-operating-characteristics-plot/)
++ [Scoring Classifier Models using scikit-learn](http://benalexkeen.com/scoring-classifier-models-using-scikit-learn/)
 
 + Wikipedia
