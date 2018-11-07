@@ -31,8 +31,8 @@ Therefore we can generate four ($2 \cdot 2$) combination of the prediected and a
 
 + **True Positive (TP)**: Prediction says positive, and the truth is also positive -> Prediction correct
 + **False Positive (FP)**: Prediction says positive, but the truth is actually negative -> Prediction wrong
-+ **True Negative (TN)**: Prediction says negative, but the truth is also negative -> Prediction correct
-+ **False Negative (FN)**: Prediction says negative, but the truth is actually negative -> Prediction correct
++ **True Negative (TN)**: Prediction says negative, and the truth is also negative -> Prediction correct
++ **False Negative (FN)**: Prediction says negative, but the truth is actually positive -> Prediction wrong
 
 You may be already crazy. "What the F\*\*K is this??? It is goddamn confused!". Don't worry, You are not the one who feels confused. So the matrix which describes these four classes is named the **Confusion Matrix**:
 
