@@ -28,15 +28,15 @@ For the neuron $k$, the basic structure includes:
 
 ![neuron-diagram-01](https://themenwhostareatcodes.files.wordpress.com/2014/03/neuron-diagram-01.png?w=450&h=264)
 
-+ inputs $x_1, x_2, \dots, x_m$ 
-+ weights/Parameters $w_{k1}, w_{k2}, \dots, w_{km}$ 
-+ bias $b_k$
-+ activation function $\varphi$
-+ outputs $y_k$
++ inputs: $x_1, x_2, \dots, x_m$ 
++ weights/Parameters: $w_{k1}, w_{k2}, \dots, w_{km}$ 
++ bias: $b_k$
++ [activation function](https://en.wikipedia.org/wiki/Activation_function): $\varphi$
++ outputs: $y_k$
 
 ### Weights/Parameters/Connections
 
-Being the most important part of an NN, these(and the biases) are the numbers the NN has to learn in order to generalize to a problem. 
+Being the most important part of an NN, these (and the biases) are the numbers the NN has to learn in order to generalize to a problem. 
 
 ### Bias
 
@@ -44,7 +44,7 @@ These numbers represent what the NN “thinks” it should add after multiplying
 
 > Sometimes the bias is set of default and is not drawn in the graph.
 
-###Activation Functions
+### Activation Functions
 
 #### Step Functions
 
@@ -52,7 +52,7 @@ A [step function](https://en.wikipedia.org/wiki/Step_function) is defined as
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*0iOzeMS3s-3LTU9hYH9ryg.png) 
 
-As one can see a step function is non-differentiable at zero. At present, a neural network uses back propagation method along with gradient descent to calculate weights of different layers. Since the step function is non-differentiable at zero hence it is not able to make progress with the gradient descent approach and fails in the task of updating the weights.
+As one can see a step function is non-differentiable at zero. At present, a neural network uses back propagation method along with gradient descent to calculate weights of different layers. Since the step function is non-differentiable at zero hence it is not able to make progress with the [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) approach and fails in the task of updating the weights.
 
 To overcome, this problem sigmoid functions were introduced instead of the step function.
 
@@ -137,7 +137,7 @@ For me I prefer this way of expression. The reasons are:
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*-JtN9TWuoZMz7z9QKbT85A.png)
 
-[Perceptron](http://en.wikipedia.org/wiki/Perceptron) has just 2 layers of nodes (input nodes and output nodes). Often called a **single-layer*** network on account of having 1 layer of links, between input and output.
+[Perceptron](http://en.wikipedia.org/wiki/Perceptron) has just 2 layers of nodes (input nodes and output nodes). But it is often called a **single-layer** network on account of having 1 layer of links, between input and output.
 
 In the modern sense, the perceptron is an algorithm for learning a binary classifier: a function that maps its input $x$ (a real-valued vector) to an output value $f(x)$ (a single binary value):
 $$
@@ -145,7 +145,7 @@ $$
 f(x)=
 \begin{cases}
 1& \text{if } w\cdot x + b > 0\\
-1& \text{else}
+0& \text{else}
 \end{cases}
 \end{equation}
 $$
@@ -161,7 +161,7 @@ The value of $f(x)$ (0 or 1) is used to classify **x** as either a positive or a
 
 The above "possible solution" was obtained by solving the linear system of equations on the left. It is clear that the solution separates the input space into two spaces, negative and positive half spaces.
 
-You can try it out by yourself for **AND** and **NOT** function. They both can be solved by perceptron.
+You can try it out by yourself for [**AND**](https://en.wikipedia.org/wiki/Logical_conjunction) and [**NOT**](https://en.wikipedia.org/wiki/Negation) function. They both can be solved by perceptron.
 
 You may ask, is there any boolean functions that the perceptron can not solve?
 
@@ -169,7 +169,7 @@ Unfortunately, there is.
 
 #### XOR Function — Can’t Do!❌
 
-Now let's look at a non-linear boolean function i.e., you cannot draw a line to separate positive inputs from the negative ones.
+Now let's look at a non-linear boolean function, i.e. [**XOR**](https://en.wikipedia.org/wiki/Exclusive_or), you can not draw a line to separate positive inputs from the negative ones.
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*E7YhKsJ2wb-VdeXpg89lvg.png)
 
@@ -201,7 +201,7 @@ A MLP is a class of [feedforward](https://en.wikipedia.org/wiki/Feedforward_neur
 
 Multilayer perceptrons are often applied to [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) problems: they train on a set of input-output pairs and learn to model the correlation (or dependencies) between those inputs and outputs. Training involves adjusting the parameters, or the weights and biases, of the model in order to minimize error. [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation) is used to make those weigh and bias adjustments relative to the error, and the error itself can be measured in a variety of ways, including by root mean squared error (RMSE). We will talk about it later.
 
-### Example
+### Example: Power of the MLP
 
 MLPs with one hidden layer are capable of approximating any continuous function.
 
@@ -233,7 +233,7 @@ Each dimension corresponds to the firing of a neuron in the layer.
 
 ## Last but not Least
 
-I hope you have already gained some general knowledge of NN after reading this article. You may have a number of questions: What is backpropagation? how it works? How many types of neural networks are there?... Don't worry, we will talk about it in the later post.
+I hope you have already gained some general knowledge of NN after reading this article. You may have a number of questions: What is backpropagation? how it works? How many types of neural networks are there? What is gradient descent? ... Don't worry, we will talk about it detailedly in the later post.
 
 **Happy reading, happy learning!**
 
