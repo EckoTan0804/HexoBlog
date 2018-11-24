@@ -8,7 +8,7 @@ mathjax: true
 
 ---
 
-![img](https://cdn-images-1.medium.com/max/1600/1*w4wR9mLS46s3gsX_7pW_ww.jpeg)
+![Bildergebnis fÃ¼r Neural Network](https://cdn-images-1.medium.com/max/2000/1*bhFifratH9DjKqMBTeQG5A.gif)
 
 <!--more-->
 
@@ -28,7 +28,7 @@ As mentioned, neural networks were inspired by the neural architecture of a huma
 
 ![Bildergebnis fÃ¼r neuron neural network](https://i.stack.imgur.com/VqOpE.jpg)
 
-A neuron take its inputs, multiplies the inputs with their associated weights and sum them up. We call it the **pre-activation**. There is also another constant term called **bias** (not occurs in the image above) which will be added into the weighted sum. After obtaining the weighted sum, the neuron applies an activation function to this and produce an activation (output). 
+A neuron take its inputs, multiplies the inputs with their associated weights and sum them up. We call it the **pre-activation**. There is also another constant term called **bias** which will be added into the weighted sum. After obtaining the sum, the neuron applies an activation function to this and produce an activation (output). 
 
 ### Structure of a Artificial Neuron 
 
@@ -46,7 +46,7 @@ Being the most important part of an NN, these (and the biases) are the numbers t
 
 #### Bias
 
-These numbers represent what the NN “thinks” it should add after multiplying the weights with the data. Of course, these are *always* wrong but the NN then learns the optimal biases as well.
+These numbers represent what the NN **“thinks”** it should add after multiplying the weights with the data. Of course, these are *always* wrong but the NN then learns the optimal biases as well.
 
 > Sometimes the bias is set of default and is not drawn in the graph.
 
@@ -143,9 +143,13 @@ For me I prefer this way of expression. The reasons are:
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*-JtN9TWuoZMz7z9QKbT85A.png)
 
-[Perceptron](http://en.wikipedia.org/wiki/Perceptron) has just 2 layers of nodes (input nodes and output nodes). But it is often called a **single-layer** network on account of having 1 layer of links, between input and output.
+First of all, we have to be clear that the layer we mention refers to the layer between the input nodes and the output nodes. Which means, we are counting the number of the layers of links/edges/weight matrices.
 
-In the modern sense, the perceptron is an algorithm for learning a binary classifier: a function that maps its input $x$ (a real-valued vector) to an output value $f(x)$ (a single binary value):
+Therefore, [perceptron](http://en.wikipedia.org/wiki/Perceptron) is often called a **single-layer** network on account of having only **1** layer of links (**1** weight matrix), between input and output.
+
+![img](https://cdn-images-1.medium.com/max/1600/1*n6sJ4yZQzwKL9wnF5wnVNg.png)
+
+In the modern sense, the perceptron is an algorithm for learning a binary classifier: a function that maps its input $x$ (a real-valued vector) to an output value $f(x)\in \{0, 1\} $ (a single binary value):
 $$
 \begin{equation}
     f(x)=
@@ -160,6 +164,8 @@ The value of $f(x)$ (0 or 1) is used to classify **x** as either a positive or a
 
 
 ### Boolean Functions Using Perceptron
+
+Let's take a look at the fundamental boolean functions. Which boolean functions can be solved by the perceptron?
 
 #### OR Function — Can Do!✅
 
@@ -187,6 +193,8 @@ Therefore, the main problem of a **single** perceptron is that <span style="colo
 
 ## Multilayer Perceptron (MLP)
 
+![img](https://cdn-images-1.medium.com/max/1600/1*w4wR9mLS46s3gsX_7pW_ww.jpeg)
+
 As a single layer perceptron can not separate data that are non-linear, can we combine multiple perceptrons to make it possible?
 
 YES! Here comes the **Multilayer perceptron (MLP)**!
@@ -196,8 +204,6 @@ The multilayer perceptron, the hello world of deep learning, composes of more th
 + an input layer to receive the signal, 
 + an output layer that makes a decision or prediction about the input,
 + in between those two, an **arbitrary number** of hidden layers that are the true computational engine of the MLP. 
-
-![img](http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/img/example_network.svg)
 
 ![img](https://1.bp.blogspot.com/-Xal8aZ5MDL8/WlJm8dh1J9I/AAAAAAAAAo4/uCj6tt4T3T0HHUY4uexNuq2BXTUwcChqACLcBGAs/s400/Multilayer-Perceptron.jpg)
 
